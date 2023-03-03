@@ -1,0 +1,3 @@
+build/**
+propobject.egg-info/**
+**/__pycache__

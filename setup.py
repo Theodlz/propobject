@@ -38,16 +38,8 @@ try:
 except ImportError:
     from distutils.core import setup
     _has_setuptools = False
-def check_dependencies():
-   install_requires = []
-   # Just make sure dependencies exist, I haven't rigorously
-   # tested what the minimal versions that will work are
-   # (help on that would be awesome)
-   return install_requires
 
 if __name__ == "__main__":
-
-    install_requires = check_dependencies()
 
     if _has_setuptools:
         packages = find_packages()
@@ -67,7 +59,13 @@ if __name__ == "__main__":
           url=URL,
           version=VERSION,
           download_url=DOWNLOAD_URL,
-          install_requires=install_requires,
+          install_requires=[
+                "corner",
+                "iminuit>=2.0.0",
+                "matplotlib",
+                "numpy>=1.21.6",
+                "scipy>=0.16.0",
+          ],
           packages=packages,
           classifiers=[
               'Intended Audience :: Science/Research',
